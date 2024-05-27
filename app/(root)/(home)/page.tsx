@@ -12,8 +12,8 @@ const page = () => {
       <div className="dark-overlay absolute inset-0 size-full  opacity-90"></div>
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
         <h1 className="heading-h1-italic font-bitter text-primary">The pure taste of</h1>
-        <h1 className="heading-xlarge font-merida">Thailand</h1>
-        <div className="text-large max-w-lg text-wrap text-center">
+        <h1 className="heading-xlarge font-merida text-default">Thailand</h1>
+        <div className="text-large max-w-lg text-wrap text-center text-default">
         <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore.</p>
         </div>

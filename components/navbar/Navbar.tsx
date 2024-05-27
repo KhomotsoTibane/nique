@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className=" fixed inset-x-0 bottom-12 z-[99999] flex w-svw items-center justify-center">
+    <div className="absolute inset-x-0 bottom-12 z-[99999] flex items-center justify-center">
       <div className="flex items-center gap-2 rounded-[500px] bg-default px-6 py-2.5 text-black">
         <div>
           <HoverCard>
