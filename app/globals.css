@@ -2,32 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Merienda:wght@300..900&display=swap");
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Kaushan+Script&family=Merienda:wght@300..900&display=swap");
+
+@import url("../styles/theme.css");
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .flex-start {
+    @apply flex justify-start items-center;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 160%;
+  overflow: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.hero {
+  background-image: url("../public/assets/images/hero.webp");
+  background-size: contain;
+  z-index: -1;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.font-bitter {
+  font-family: "Bitter", serif;
+}
+
+.font-merinda {
+  font-family: "Kaushan Script", cursive;
+}
+/* 
+.dark-overlay{
+background: linear-gradient(90deg, rgba(46,46,45,1) 0%, rgba(115,115,114,0) 55%);
+} */
+
+.dark-overlay {
+  z-index: 0;
+  opacity: 0.5;
+  background-color: #050505;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
 }

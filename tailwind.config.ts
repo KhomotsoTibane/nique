@@ -14,6 +14,11 @@ const config: Config = {
         primary: "#FACE8D",
         inverse: "#081212",
       },
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+        bitter: ["var(--font-bitter)"],
+        merida: ["var(--font-merida)"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
