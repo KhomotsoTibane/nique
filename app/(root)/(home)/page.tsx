@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Navbar from "@/components/navbar/Navbar";
 
 const page = () => {
   return (
@@ -18,6 +19,7 @@ const page = () => {
           ut labore.</p>
         </div>
       </div>
+      <Navbar/>
     </div>
   );
 };
