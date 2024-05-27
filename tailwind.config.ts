@@ -10,9 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         default: "#FFFFFF",
-        muted: "#FFFFFF",
+        muted: "#FFFFFF99",
         primary: "#FACE8D",
         inverse: "#081212",
+        dark:"#050505"
+      },
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+        bitter: ["var(--font-bitter)"],
+        merida: ["var(--font-merida)"],
       },
     },
   },
