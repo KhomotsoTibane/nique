@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+
+    .text-small {
+        @apply text-[14px] leading-[1.4];
+      }
+      
+      .text-default {
+        @apply text-[16px] leading-[1.6];
+      }
+      
+      .text-medium {
+        @apply text-[18px] leading-[1.6];
+      }
+      
+      .text-large {
+        @apply text-[20px] leading-[1.6];
+      }
+      
+      .text-xlarge {
+        @apply text-[24px] leading-[1.6];
+      }
+      
+      .heading-xlarge {
+        @apply text-[160px] leading-[0.9];
+      }
+      
+      .heading-medium {
+        @apply text-[80px] leading-[1.0];
+      }
+      
+      .heading-h1-italic {
+        @apply text-[80px] leading-[0.9] italic;
+      }
+      
+      .heading-h1 {
+        @apply text-[64px] leading-[1.0];
+      }
+      
+      .heading-h2-italic {
+        @apply text-[64px] leading-[0.7] italic;
+      }
+      
+      .heading-h2 {
+        @apply text-[40px] leading-[1.0];
+      }
+      
+      .heading-h3 {
+        @apply text-[32px] leading-[1.0];
+      }
+      
+      .heading-h4 {
+        @apply text-[24px] leading-[1.6];
+      }
+      
+      .heading-h5 {
+        @apply text-[20px] leading-[1.6];
+      }
+      
+      .heading-h6 {
+        @apply text-[18px] leading-[1.6];
+      }
+      
+}
