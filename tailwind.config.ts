@@ -13,6 +13,7 @@ const config: Config = {
         muted: "#FFFFFF99",
         primary: "#FACE8D",
         inverse: "#081212",
+        lightGray:"#f1f1f1",
         dark:"#050505"
       },
       fontFamily: {

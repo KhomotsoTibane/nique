@@ -11,3 +11,12 @@ export interface NavbarLink {
     isVegan: boolean;
     price: number;
   }
+
+  export interface ClassEvent {
+    category: string;
+    title: string;
+    date: string;
+    image:string
+  }
+  
+

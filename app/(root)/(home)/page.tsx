@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Navbar from "@/components/navbar/Navbar";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="hero max-h-screen min-h-screen w-svw">
       <header className="fixed inset-x-0 bottom-auto top-0 z-[9999] flex  items-center justify-center py-12">
@@ -24,4 +24,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

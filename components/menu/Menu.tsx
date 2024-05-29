@@ -15,16 +15,16 @@ const Menu = () => {
         }
       };
   return (
-    <div className="flex w-full flex-col gap-6 overflow-y-auto bg-dark">
-      <div className="w-full text-default">
-        {["starters", "Breakfast", "Lunch", "Drinks"].map((link) => {
+    <div className="flex max-h-screen w-full flex-col gap-6 overflow-y-auto bg-dark">
+      <div className="flex w-full justify-center gap-4 p-2 text-muted">
+        {["Starters", "Breakfast", "Lunch", "Drinks"].map((link) => {
           return <Link key={link} href={`#${link}`}>
             <button onClick={() => scrollToSection(`${link}`)}>{link}</button>
           </Link>;
         })}
       </div>
-      <div  id="Starters" className=" px-8">
-        <h1 className="heading-h3 text-primary">starters</h1>
+      <div  id="Starters" className=" flex flex-col gap-8 px-8 py-4">
+        <h1 className="heading-h3 font-bitter capitalize italic text-primary">starters</h1>
         <div className="flex flex-col gap-8">
           {startersMenu.map((starter) => {
             return (
@@ -50,8 +50,8 @@ const Menu = () => {
         </div>
       </div>
 
-      <div id="Breakfast" className=" px-8">
-        <h1 className="heading-h3 text-primary">Breakfast</h1>
+      <div id="Breakfast" className=" flex flex-col gap-8 px-8 py-4">
+        <h1 className="heading-h3 font-bitter capitalize italic text-primary">Breakfast</h1>
         <div className="flex flex-col gap-8">
           {breakfastMenu.map((item) => {
             return (
@@ -77,8 +77,8 @@ const Menu = () => {
         </div>
       </div>
 
-      <div id="Lunch"className=" px-8">
-        <h1 className="heading-h3 text-primary">Lunch</h1>
+      <div id="Lunch"className=" flex flex-col gap-8 px-8 py-4">
+        <h1 className="heading-h3 font-bitter capitalize italic text-primary">Lunch</h1>
         <div className="flex flex-col gap-8">
           {lunchMenu.map((item) => {
             return (
@@ -104,8 +104,8 @@ const Menu = () => {
         </div>
       </div>
 
-      <div id="Drinks" className=" px-8">
-        <h1 className="heading-h3 text-primary">Drinks</h1>
+      <div id="Drinks" className=" flex flex-col gap-8 px-8 py-4">
+        <h1 className="heading-h3 font-bitter capitalize italic text-primary">Drinks</h1>
         <div className="flex flex-col gap-8">
           {drinksMenu.map((item) => {
             return (

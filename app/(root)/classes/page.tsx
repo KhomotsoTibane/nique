@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import Image from "next/image";
+import Navbar from "@/components/navbar/Navbar";
 
 const Page = () => {
   return (
-    <div>Classes</div>
-  )
-}
+    <div className="hero max-h-screen min-h-screen w-svw">
+      <header className="fixed inset-x-0 bottom-auto top-0 z-[9999] flex  items-center justify-center py-12">
+        <Image src="/assets/icons/nique-logo.svg" alt="logo" width={90} height={31} />
+      </header>
+      <div className="dark-overlay absolute inset-0 size-full  opacity-90"></div>
 
-export default Page
+      <Navbar />
+    </div>
+  );
+};
+
+export default Page;

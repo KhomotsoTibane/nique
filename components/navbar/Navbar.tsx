@@ -1,16 +1,21 @@
+"use client";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { NavbarLinks } from "@/constants";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
+  console.log("path", pathname);
   return (
-    <div className="absolute inset-x-0 bottom-12 z-[99999] flex items-center justify-center">
+    <div className="absolute inset-x-0 bottom-12 z-[99999] mx-4 flex items-center justify-center">
       <div className="flex items-center gap-2 rounded-[500px] bg-default px-6 py-2.5 text-black">
         <div>
           <HoverCard>
-            <HoverCardTrigger asChild>
+            <HoverCardTrigger asChild className="cursor-pointer">
               <Image src="/assets/icons/menu.svg" width={15} height={15} alt="menu" />
             </HoverCardTrigger>
             <HoverCardContent align="start" sideOffset={30} className="bg-white text-black">
@@ -34,7 +39,7 @@ const Navbar = () => {
         </div>
         <div>
           <HoverCard>
-            <HoverCardTrigger asChild>
+            <HoverCardTrigger asChild className="cursor-pointer rounded-full hover:bg-lightGray">
               <Image src="/assets/icons/clock.svg" width={40} height={40} alt="operating hours" />
             </HoverCardTrigger>
             <HoverCardContent align="start" sideOffset={30} className="bg-white text-black">
@@ -63,21 +68,23 @@ const Navbar = () => {
           </HoverCard>
         </div>
         <div className="hidden gap-3 md:flex">
-          <Link href="/menu">
-            <Button className="rounded-[500px] bg-transparent capitalize text-black hover:bg-slate-300">
-              Menu
-            </Button>
-          </Link>
-          <Link href="/resturant">
-            <Button className="rounded-[500px] bg-transparent capitalize text-black hover:bg-slate-300">
-              Resturant
-            </Button>
-          </Link>
-          <Link href="/classes">
-            <Button className="rounded-[500px] bg-transparent capitalize text-black hover:bg-slate-300">
-              Classes
-            </Button>
-          </Link>
+          {[
+            { href: "menu", label: "Menu" },
+            { href: "resturant", label: "Resturant" },
+            { href: "classes", label: "Classes" },
+          ].map((link) => {
+            const isActive =
+              (pathname.includes(link.href) && link.href.length > 1) || pathname === link.href;
+            return (
+              <Link key={link.href} href={link.href}>
+                <Button
+                  className={` ${isActive ? "bg-lightGray" : "bg-transparent"} rounded-[500px]  capitalize text-black hover:bg-lightGray`}
+                >
+                  {link.label}
+                </Button>
+              </Link>
+            );
+          })}
         </div>
         <div>
           <Link href="/reservation">
