@@ -1,34 +1,36 @@
-"use client"
+"use client";
 import { breakfastMenu, drinksMenu, lunchMenu, startersMenu } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Menu = () => {
-    const scrollToSection = (sectionId:string) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          window.scrollTo({
-            top: section.offsetTop,
-            behavior: 'smooth',
-          });
-        }
-      };
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
-    <div className="flex max-h-screen w-full flex-col gap-6 overflow-y-auto bg-dark">
+    <div className="flex w-full flex-col gap-6 bg-dark lg:max-h-screen lg:overflow-y-auto">
       <div className="flex w-full justify-center gap-4 p-2 text-muted">
         {["Starters", "Breakfast", "Lunch", "Drinks"].map((link) => {
-          return <Link key={link} href={`#${link}`}>
-            <button onClick={() => scrollToSection(`${link}`)}>{link}</button>
-          </Link>;
+          return (
+            <Link key={link} href={`#${link}`}>
+              <button onClick={() => scrollToSection(`${link}`)}>{link}</button>
+            </Link>
+          );
         })}
       </div>
-      <div  id="Starters" className=" flex flex-col gap-8 px-8 py-4">
-        <h1 className="heading-h3 font-bitter capitalize italic text-primary">starters</h1>
+      <div id="Starters" className=" flex flex-col gap-8 px-8 py-4">
+        <h1 className="heading-h2-italic">starters</h1>
         <div className="flex flex-col gap-8">
-          {startersMenu.map((starter) => {
+          {startersMenu.map((item) => {
             return (
-              <div key={starter.name} className="flex gap-4">
+              <div key={item.name} className="flex gap-4">
                 <div className="max-h-[70] max-w-[90] overflow-hidden rounded-xl ">
                   <Image
                     src="/assets/images/noodle-soup.webp"
@@ -40,9 +42,12 @@ const Menu = () => {
                 </div>
                 <div className="flex grow flex-col justify-center gap-1">
                   <div className="flex justify-between text-default">
-                    <p className=""> {starter.name}</p> <p>$ {starter.price}</p>
+                    <h3 className="menu-title flex gap-2"> {item.name}
+                    {item.isVegan && <Image src="/assets/icons/vegan.svg" alt="vegan" width={16} height={16}/>}
+                    </h3>{" "}
+                    <h3 className="menu-price">$ {item.price}</h3>
                   </div>
-                  <p className="text-muted">{starter.description}</p>
+                  <p className="text-muted">{item.description}</p>
                 </div>
               </div>
             );
@@ -51,7 +56,7 @@ const Menu = () => {
       </div>
 
       <div id="Breakfast" className=" flex flex-col gap-8 px-8 py-4">
-        <h1 className="heading-h3 font-bitter capitalize italic text-primary">Breakfast</h1>
+        <h1 className="heading-h2-italic">Breakfast</h1>
         <div className="flex flex-col gap-8">
           {breakfastMenu.map((item) => {
             return (
@@ -67,7 +72,10 @@ const Menu = () => {
                 </div>
                 <div className="flex grow flex-col justify-center gap-1">
                   <div className="flex justify-between text-default">
-                    <p className=""> {item.name}</p> <p>$ {item.price}</p>
+                    <h3 className="menu-title flex gap-2"> {item.name}
+                    {item.isVegan && <Image src="/assets/icons/vegan.svg" alt="vegan" width={16} height={16}/>}
+                    </h3>{" "}
+                    <h3 className="menu-price">$ {item.price}</h3>
                   </div>
                   <p className="text-muted">{item.description}</p>
                 </div>
@@ -77,8 +85,8 @@ const Menu = () => {
         </div>
       </div>
 
-      <div id="Lunch"className=" flex flex-col gap-8 px-8 py-4">
-        <h1 className="heading-h3 font-bitter capitalize italic text-primary">Lunch</h1>
+      <div id="Lunch" className=" flex flex-col gap-8 px-8 py-4">
+        <h1 className="heading-h2-italic">Lunch</h1>
         <div className="flex flex-col gap-8">
           {lunchMenu.map((item) => {
             return (
@@ -94,7 +102,10 @@ const Menu = () => {
                 </div>
                 <div className="flex grow flex-col justify-center gap-1">
                   <div className="flex justify-between text-default">
-                    <p className=""> {item.name}</p> <p>$ {item.price}</p>
+                    <h3 className="menu-title flex gap-2"> {item.name}
+                    {item.isVegan && <Image src="/assets/icons/vegan.svg" alt="vegan" width={16} height={16}/>}
+                    </h3>{" "}
+                    <h3 className="menu-price">$ {item.price}</h3>
                   </div>
                   <p className="text-muted">{item.description}</p>
                 </div>
@@ -105,7 +116,7 @@ const Menu = () => {
       </div>
 
       <div id="Drinks" className=" flex flex-col gap-8 px-8 py-4">
-        <h1 className="heading-h3 font-bitter capitalize italic text-primary">Drinks</h1>
+        <h1 className="heading-h2-italic">Drinks</h1>
         <div className="flex flex-col gap-8">
           {drinksMenu.map((item) => {
             return (
@@ -121,7 +132,8 @@ const Menu = () => {
                 </div>
                 <div className="flex grow flex-col justify-center gap-1">
                   <div className="flex justify-between text-default">
-                    <p className=""> {item.name}</p> <p>$ {item.price}</p>
+                    <h3 className="menu-title"> {item.name}</h3>{" "}
+                    <h3 className="menu-price">$ {item.price}</h3>
                   </div>
                   <p className="text-muted">{item.description}</p>
                 </div>

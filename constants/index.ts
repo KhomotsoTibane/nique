@@ -21,16 +21,16 @@ export const NavbarLinks: NavbarLink[] = [
     route: "/contact",
     label: "Contact",
   },
-  {
-    imgURL: "/assets/icons/arrow-right.svg",
-    route: "/shop",
-    label: "Shop",
-  },
-  {
-    imgURL: "/assets/icons/arrow-right.svg",
-    route: "/blog",
-    label: "Blog",
-  },
+  // {
+  //   imgURL: "/assets/icons/arrow-right.svg",
+  //   route: "/shop",
+  //   label: "Shop",
+  // },
+  // {
+  //   imgURL: "/assets/icons/arrow-right.svg",
+  //   route: "/blog",
+  //   label: "Blog",
+  // },
 ];
 
 export const breakfastMenu: MenuItem[] = [

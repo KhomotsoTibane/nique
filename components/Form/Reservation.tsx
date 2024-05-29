@@ -58,8 +58,8 @@ const Reservation = () => {
     <div className="flex max-h-screen min-h-screen w-full flex-col gap-6 overflow-y-auto bg-dark text-default">
       <div className="flex flex-col gap-6 p-8">
         <div>
-          <h3 className="heading-h3">Book a table</h3>
-          <p className="max-w-[600px] text-muted">
+          <h2 className="">Book a table</h2>
+          <p className="text-large max-w-[600px] text-muted">
             Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Arcu non odio
             euismod lacinia. Tortor aliquam nulla facilisi cras fermentum odio eu.
           </p>
@@ -75,7 +75,7 @@ const Reservation = () => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your name" {...field} />
+                      <Input placeholder="Enter your name" {...field}  className=" border-muted bg-transparent"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -89,7 +89,7 @@ const Reservation = () => {
                     <FormLabel>Number of Guests</FormLabel>
                     <FormControl>
                       <Input
-                        className="text-black"
+                        className=" border-muted bg-transparent"
                         type="number"
                         min={1}
                         max={50}

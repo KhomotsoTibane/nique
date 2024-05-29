@@ -86,7 +86,7 @@
   }
 
   .text-large {
-    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-normal;
+    @apply text-lg sm:text-xl md:text-2xl lg:text-[24px] xl:text-4xl leading-normal;
   }
 
   .text-xlarge {
