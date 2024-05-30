@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { CalendarIcon } from "@radix-ui/react-icons";
-
+import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -32,15 +32,10 @@ const formSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
-  email: z.string()
-    .email("Invalid email address.")
-    .min(2, {
-      message: "Email must be at least 2 characters.",
-    })
-    .nonempty({ message: "Email is required." }),
-  guests: z.string()
-    .nonempty({ message: "Number of guests is required." })
-    .regex(/^\d+$/, { message: "Guests must be a number." }),
+  email: z.string().email("Invalid email address.").min(2, {
+    message: "Email must be at least 2 characters.",
+  }),
+  guests: z.string(),
   date: z.date({
     required_error: "A Date is required to make a reservation",
   }),
@@ -49,31 +44,45 @@ const formSchema = z.object({
   }),
 });
 
-
 const Reservation = () => {
-  const { control, watch, setValue } = useForm();
+  const {toast} = useToast()
+  const { watch, setValue } = useForm();
   const selectedDate = watch("date");
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      guests: "1",
+      guests: "2",
     },
   });
+  const [isSending, setIsSending] = useState(false)
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-
-    // await fetch("api/emails", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     name: values.name,
-    //     email: values.email,
-    //     guests: values.guests,
-    //     date: values.date,
-    //     time: values.time,
-    //   }),
-    // });
+setIsSending(true)
+    try {
+      const res = await fetch("api/emails", {
+        method: "POST",
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          guests: values.guests,
+          date: values.date,
+          time: values.time,
+        }),
+      });
+      if(res.status === 200){
+        return toast({
+          title: "Booking Success",
+          description: "Please lookout for confirmation email",
+        });
+      }
+    } catch (error) {
+      console.log(error)
+    }finally{
+    
+      setIsSending(false)
+    }
   }
 
   const today = new Date();
@@ -89,18 +98,22 @@ const Reservation = () => {
     if (dayOfWeek === 0 || dayOfWeek === 6) {
       // Weekend: Saturday or Sunday
       for (let hour = 9; hour <= 23; hour++) {
-        const time = `${hour.toString().padStart(2, '0')}:00`;
+        const time = `${hour.toString().padStart(2, "0")}:00`;
         times.push(time);
       }
     } else {
       // Weekdays: Monday to Friday
       for (let hour = 9; hour <= 20; hour++) {
-        const time = `${hour.toString().padStart(2, '0')}:00`;
+        const time = `${hour.toString().padStart(2, "0")}:00`;
         times.push(time);
       }
     }
-    return times.map(time => <SelectItem key={time} value={time}>{time}</SelectItem>);
-  }
+    return times.map((time) => (
+      <SelectItem key={time} value={time}>
+        {time}
+      </SelectItem>
+    ));
+  };
 
   return (
     <div className="flex max-h-screen min-h-screen w-full flex-col gap-6 bg-dark text-default lg:overflow-y-auto">
@@ -118,7 +131,7 @@ const Reservation = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
-                control={control}
+                control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
@@ -135,7 +148,7 @@ const Reservation = () => {
                 )}
               />
               <FormField
-                control={control}
+                control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
@@ -158,7 +171,7 @@ const Reservation = () => {
               />
 
               <FormField
-                control={control}
+                control={form.control}
                 name="guests"
                 render={({ field }) => (
                   <FormItem>
@@ -182,7 +195,7 @@ const Reservation = () => {
               />
               <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
                 <FormField
-                  control={control}
+                  control={form.control}
                   name="date"
                   render={({ field }) => (
                     <FormItem className="flex w-full flex-col">
@@ -221,7 +234,7 @@ const Reservation = () => {
                 />
 
                 <FormField
-                  control={control}
+                  control={form.control}
                   name="time"
                   render={({ field }) => (
                     <FormItem className="flex w-full flex-col md:w-[240px]">
@@ -233,7 +246,7 @@ const Reservation = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent className="bg-default">
-                        {generateSelectItems()}
+                          {generateSelectItems()}
                         </SelectContent>
                       </Select>
 
@@ -243,8 +256,8 @@ const Reservation = () => {
                 />
               </div>
 
-              <Button type="submit" className="w-full rounded-3xl text-black">
-                Book a table
+              <Button type="submit" className="w-full rounded-3xl text-black" disabled={isSending}>
+                {isSending ? "Confirming Booking..." : "Book a table"}
               </Button>
             </form>
           </Form>
