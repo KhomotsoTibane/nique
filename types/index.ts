@@ -13,6 +13,7 @@ export interface NavbarLink {
   }
 
   export interface ClassEvent {
+    id:number;
     category: string;
     title: string;
     date: string;

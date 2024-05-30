@@ -33,150 +33,145 @@ export const NavbarLinks: NavbarLink[] = [
   // },
 ];
 
-export const breakfastMenu: MenuItem[] = [
+export const startersMenu: MenuItem[] = [
   {
-    name: "Avocado Toast",
-    image: "https://example.com/images/avocado-toast.jpg",
+    name: "Tomato Toast",
+    image: "/assets/images/tomatoetoast.webp",
     description: "A delicious toast topped with fresh avocado and cherry tomatoes.",
     isVegan: true,
-    price: 8.99,
+    price: 170,
   },
   {
-    name: "Omelette",
-    image: "https://example.com/images/omelette.jpg",
-    description: "A classic omelette with cheese, ham, and bell peppers.",
+    name: "Noodle Soup",
+    image: "/assets/images/noodlesoup.webp",
+    description:
+      "A fragrant and flavorful soup featuring tender rice noodles, fresh herbs, and a savory broth infused with lemongrass",
     isVegan: false,
-    price: 9.99,
+    price: 189,
   },
   {
-    name: "Fruit Salad",
-    image: "https://example.com/images/fruit-salad.jpg",
-    description: "A colorful mix of seasonal fruits served with a light honey dressing.",
+    name: "Pumpkin Soup",
+    image: "/assets/images/pumpkinsoup.webp",
+    description:
+      "Creamy roasted pumpkin soup with aromatic spices, coconut milk, olive oil drizzle, and toasted pumpkin seeds",
     isVegan: true,
-    price: 5.99,
+    price: 113,
   },
 ];
 
 export const lunchMenu: MenuItem[] = [
   {
+    name: "Italian Pizza",
+    image: "/assets/images/pizza.webp",
+    description:
+      "Classic Italian pizza with fresh mozzarella, tomatoes, and basil on a crispy crust.",
+    isVegan: false,
+    price: 246,
+  },
+  {
     name: "Sea Curry",
-    image: "https://example.com/images/sea-curry.jpg",
+    image: "/assets/images/seacurry.webp",
     description: "A flavorful curry with shrimp, mussels, and squid in a rich coconut sauce.",
     isVegan: false,
-    price: 15.99,
+    price: 303,
   },
   {
     name: "Vegan Burger",
-    image: "https://example.com/images/vegan-burger.jpg",
+    image: "/assets/images/veganburger.webp",
     description: "A hearty vegan burger made with a chickpea patty, avocado, and vegan mayo.",
     isVegan: true,
-    price: 10.99,
+    price: 208,
   },
   {
     name: "Noodle Bowl",
-    image: "https://example.com/images/noodle-bowl.jpg",
+    image: "/assets/images/noodlebowl.webp",
     description:
       "A fresh and tasty noodle bowl with mixed vegetables, tofu, and a tangy soy sauce.",
     isVegan: true,
-    price: 11.99,
+    price: 227,
   },
 ];
 
 export const drinksMenu: MenuItem[] = [
   {
-    name: "Mojito",
-    image: "https://example.com/images/mojito.jpg",
-    description: "A classic cocktail with rum, fresh mint, lime juice, sugar, and soda water.",
+    name: "Panthouse Tonic",
+    image: "/assets/images/tonic.webp",
+    description: "A refreshing mix of premium gin, tonic water, and a hint of elderflower.",
     isVegan: true,
-    price: 7.99,
+    price: 170,
   },
   {
-    name: "Margarita",
-    image: "https://example.com/images/margarita.jpg",
-    description:
-      "A refreshing cocktail with tequila, lime juice, and triple sec, served with a salted rim.",
+    name: "Apple Breeze",
+    image: "/assets/images/applebreeze.webp",
+    description: "A light and fruity cocktail with apple juice, vodka, and a splash of soda.",
     isVegan: true,
-    price: 8.99,
+    price: 151,
   },
   {
-    name: "Old Fashioned",
-    image: "https://example.com/images/old-fashioned.jpg",
-    description:
-      "A classic whiskey cocktail with bourbon, bitters, sugar, and a twist of citrus rind.",
+    name: "Frenchman Blitz",
+    image: "/assets/images/blitz.webp",
+    description: "A sophisticated blend of cognac, lemon juice, and sparkling wine.",
     isVegan: true,
-    price: 9.99,
-  },
-
-  {
-    name: "Gin and Tonic",
-    image: "https://example.com/images/gin-and-tonic.jpg",
-    description: "A classic cocktail with gin, tonic water, and a slice of lime.",
-    isVegan: true,
-    price: 7.49,
-  },
-  {
-    name: "Bloody Mary",
-    image: "https://example.com/images/bloody-mary.jpg",
-    description:
-      "A savory cocktail made with vodka, tomato juice, and a mix of spices and flavorings.",
-    isVegan: true,
-    price: 9.49,
-  },
-  {
-    name: "Martini",
-    image: "https://example.com/images/martini.jpg",
-    description:
-      "A sophisticated cocktail made with gin and vermouth, garnished with an olive or a lemon twist.",
-    isVegan: true,
-    price: 10.99,
+    price: 208,
   },
 ];
 
-export const startersMenu: MenuItem[] = [
+export const breakfastMenu: MenuItem[] = [
   {
-    name: "Bruschetta",
-    image: "https://example.com/images/bruschetta.jpg",
-    description: "Grilled bread topped with fresh tomatoes, garlic, basil, and olive oil.",
+    name: "Delicious Pancakes",
+    image: "/assets/images/pancakes.webp",
+    description: "Fluffy pancakes served with maple syrup and fresh berries.",
     isVegan: true,
-    price: 5.99,
+    price: 151,
   },
   {
-    name: "Stuffed Mushrooms",
-    image: "https://example.com/images/stuffed-mushrooms.jpg",
-    description: "Mushrooms stuffed with a delicious mixture of herbs, garlic, and breadcrumbs.",
-    isVegan: true,
-    price: 6.99,
-  },
-  {
-    name: "Garlic Shrimp",
-    image: "https://example.com/images/garlic-shrimp.jpg",
-    description: "Succulent shrimp sautéed in garlic and butter, served with a lemon wedge.",
+    name: "Sweet Heaven",
+    image: "/assets/images/sweetheaven.webp",
+    description: "Decadent dessert featuring layers of chocolate, cream, and caramel.",
     isVegan: false,
-    price: 8.99,
+    price: 132,
   },
-  
+  {
+    name: "Oatmeal Spirit",
+    image: "/assets/images/oatmeal.webp",
+    description: "Warm oatmeal topped with fruits, nuts, and a drizzle of honey.",
+    isVegan: true,
+    price: 113,
+  },
+  {
+    name: "Avocado Smash",
+    image: "/assets/images/avosmash.webp",
+    description:
+      "Creamy avocado on toasted bread, garnished with cherry tomatoes and a sprinkle of sea salt.",
+    isVegan: true,
+    price: 132,
+  },
 ];
 
 export const classes: ClassEvent[] = [
   {
+    id: 1,
     category: "Asian",
     title: "Delicious breakfast",
     date: "June 16, 2024",
     image: "/assets/images/gallery-1.webp",
   },
   {
+    id: 2,
     category: "European",
     title: "Croissant and coffee",
     date: "July 28, 2024",
     image: "/assets/images/gallery-2.webp",
   },
   {
+    id: 3,
     category: "American",
     title: "Pancakes with maple syrup",
     date: "September 8, 2024",
     image: "/assets/images/gallery-3.webp",
   },
   {
+    id: 4,
     category: "African",
     title: "Ful medames",
     date: "October 20, 2024",

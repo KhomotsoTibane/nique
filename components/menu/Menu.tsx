@@ -33,8 +33,8 @@ const Menu = () => {
               <div key={item.name} className="flex gap-4">
                 <div className="max-h-[70] max-w-[90] overflow-hidden rounded-xl ">
                   <Image
-                    src="/assets/images/noodle-soup.webp"
-                    alt="menu item"
+                    src={item.image}
+                    alt={item.name}
                     width={100}
                     height={77}
                     className="hover:scale-110"
@@ -45,7 +45,7 @@ const Menu = () => {
                     <h3 className="menu-title flex gap-2"> {item.name}
                     {item.isVegan && <Image src="/assets/icons/vegan.svg" alt="vegan" width={16} height={16}/>}
                     </h3>{" "}
-                    <h3 className="menu-price">$ {item.price}</h3>
+                    <h3 className="menu-price"> ZAR {item.price}</h3>
                   </div>
                   <p className="text-muted">{item.description}</p>
                 </div>
@@ -63,8 +63,8 @@ const Menu = () => {
               <div key={item.name} className="flex gap-4">
                 <div className="max-h-[70] max-w-[90] overflow-hidden rounded-xl ">
                   <Image
-                    src="/assets/images/menu-pumpkin-soup.webp"
-                    alt="menu item"
+                      src={item.image}
+                      alt={item.name}
                     width={100}
                     height={77}
                     className="hover:scale-110"
@@ -75,7 +75,7 @@ const Menu = () => {
                     <h3 className="menu-title flex gap-2"> {item.name}
                     {item.isVegan && <Image src="/assets/icons/vegan.svg" alt="vegan" width={16} height={16}/>}
                     </h3>{" "}
-                    <h3 className="menu-price">$ {item.price}</h3>
+                    <h3 className="menu-price"> ZAR {item.price}</h3>
                   </div>
                   <p className="text-muted">{item.description}</p>
                 </div>
@@ -93,8 +93,8 @@ const Menu = () => {
               <div key={item.name} className="flex gap-4">
                 <div className="max-h-[70] max-w-[90] overflow-hidden rounded-xl ">
                   <Image
-                    src="/assets/images/menu-pumpkin-soup.webp"
-                    alt="menu item"
+                       src={item.image}
+                       alt={item.name}
                     width={100}
                     height={77}
                     className="hover:scale-110"
@@ -105,7 +105,7 @@ const Menu = () => {
                     <h3 className="menu-title flex gap-2"> {item.name}
                     {item.isVegan && <Image src="/assets/icons/vegan.svg" alt="vegan" width={16} height={16}/>}
                     </h3>{" "}
-                    <h3 className="menu-price">$ {item.price}</h3>
+                    <h3 className="menu-price"> ZAR {item.price}</h3>
                   </div>
                   <p className="text-muted">{item.description}</p>
                 </div>
@@ -123,8 +123,8 @@ const Menu = () => {
               <div key={item.name} className="flex gap-4">
                 <div className="max-h-[70] max-w-[90] overflow-hidden rounded-xl ">
                   <Image
-                    src="/assets/images/menu-pumpkin-soup.webp"
-                    alt="menu item"
+                   src={item.image}
+                   alt={item.name}
                     width={100}
                     height={77}
                     className="hover:scale-110"
@@ -133,7 +133,7 @@ const Menu = () => {
                 <div className="flex grow flex-col justify-center gap-1">
                   <div className="flex justify-between text-default">
                     <h3 className="menu-title"> {item.name}</h3>{" "}
-                    <h3 className="menu-price">$ {item.price}</h3>
+                    <h3 className="menu-price"> ZAR {item.price}</h3>
                   </div>
                   <p className="text-muted">{item.description}</p>
                 </div>

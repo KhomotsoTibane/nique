@@ -1,70 +1,66 @@
 "use client";
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import React from "react";
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import "react-horizontal-scrolling-menu/dist/styles.css";
+import { Card } from "./Card";
+import { classes } from "@/constants";
 
-interface Props {
-  images?: { name?: string; image: string; category?: string; title?: string; date?: string }[];
-}
+import usePreventBodyScroll from "./usePreventBodyScroll";
 
-const HorizontalScroll = ({ images }: Props) => {
-  const sectionRef = useRef(null);
-  const triggerRef = useRef(null);
+// NOTE: embrace power of CSS flexbox!
+
+// import "./firstItemMargin.css";
+
+type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
+
+const elemPrefix = "test";
+const getId = (index: number) => `${elemPrefix}${index}`;
+
+const getItems = () =>
+  classes.map((classItem, ind) => ({ ...classItem, id: getId(ind) }));
 
 
-  useEffect(() => {
-    const pin = gsap.fromTo(
-      sectionRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: "-100vw",
-        ease: "none",
-        duration: 1,
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          start: "top top",
-          end: "100 top",
-          scrub: 0.6,
-          pin: true,
-        },
-      }
-    );
-    return () => {
-      // {/* A return function for killing the animation on component unmount */ }
-      pin.kill();
-    };
-  }, []);
+function HorizontalScroll() {
+  const [items] = React.useState(getItems);
+  const { disableScroll, enableScroll } = usePreventBodyScroll();
+
+  console.log("items", items);
 
   return (
     <>
-      <section className="scroll-section-outer">
-        {/* The section up act just as a wrapper. If the trigger (below) is the
-      first jsx element in the component, you get an error on route change */}
-
-        {/* The div below act just as a trigger. As the doc suggests, the trigger and
-      the animation should alway be two separated refs */}
-        <div ref={triggerRef}>
-          <div ref={sectionRef} className="scroll-section-inner">
-            {" "}
-            <div className="scroll-section">
-              {images?.map(({ name, image, category, date, title }) => (
-                <div key={name}>
-                  <div className="relative flex w-[50vw] justify-center">
-                    <img src={image} alt={name} />
-                    <h3 className=" absolute inset-0 border border-purple-800 text-primary">assdadjd</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      <div className="scroll-container " style={{}}>
+        <div onMouseEnter={disableScroll} onMouseLeave={enableScroll}>
+          <ScrollMenu onWheel={onWheel}>
+            {items.map(({ id, image, date, category, title }) => (
+              <Card
+                title={id}
+                itemId={id} // NOTE: itemId is required for track items
+                key={id}
+                image={image}
+                date={date}
+                category={category}
+                heading={title}
+              />
+            ))}
+          </ScrollMenu>
         </div>
-      </section>
-      {/* <Navbar /> */}
+      </div>
     </>
   );
-};
-
+}
 export default HorizontalScroll;
+
+function onWheel(apiObj: scrollVisibilityApiType, ev: React.WheelEvent): void {
+  const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
+
+  if (isThouchpad) {
+    ev.stopPropagation();
+    return;
+  }
+
+  if (ev.deltaY < 0) {
+    apiObj.scrollNext();
+  } else if (ev.deltaY > 0) {
+    apiObj.scrollPrev();
+  }
+}

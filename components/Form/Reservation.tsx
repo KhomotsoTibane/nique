@@ -1,5 +1,5 @@
 "use client";
-
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -32,6 +32,10 @@ const formSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
+  email: z.string({
+    message: "Email must be at least 2 characters.",
+    required_error: "A Date is required to make a reservation",
+  }),
   guests: z.string(),
   date: z.date({
     required_error: "A Date is required to make a reservation",
@@ -42,6 +46,8 @@ const formSchema = z.object({
 });
 
 const Reservation = () => {
+  const { control, watch, setValue } = useForm();
+  const selectedDate = watch("date");
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,18 +56,36 @@ const Reservation = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+
+    // await fetch("api/emails", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     name: values.name,
+    //     email: values.email,
+    //     guests: values.guests,
+    //     date: values.date,
+    //     time: values.time,
+    //   }),
+    // });
   }
+
+  const today = new Date();
+
+  console.log("today", today);
+
+  console.log("slected", selectedDate);
 
   return (
     <div className="flex max-h-screen min-h-screen w-full flex-col gap-6 overflow-y-auto bg-dark text-default">
       <div className="flex flex-col gap-6 p-8">
         <div>
           <h2 className="">Book a table</h2>
-          <p className="text-large max-w-[600px] text-muted">
-            Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Arcu non odio
-            euismod lacinia. Tortor aliquam nulla facilisi cras fermentum odio eu.
+          <p className="text-large max-w-[700px] text-muted">
+            Experience exceptional dining with us. Reserve your table today and indulge in a
+            culinary journey like no other. Enjoy exquisite dishes, a welcoming atmosphere, and
+            top-notch service.
           </p>
         </div>
 
@@ -69,20 +93,47 @@ const Reservation = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
-                control={form.control}
+                control={control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your name" {...field}  className=" border-muted bg-transparent"/>
+                      <Input
+                        placeholder="Enter your name"
+                        {...field}
+                        className=" border-muted bg-transparent"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <FormField
-                control={form.control}
+                control={control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        id="email"
+                        placeholder="Joe@example.com"
+                        type="email"
+                        autoCapitalize="none"
+                        className=" border-muted bg-transparent"
+                        autoComplete="email"
+                        autoCorrect="off"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={control}
                 name="guests"
                 render={({ field }) => (
                   <FormItem>
@@ -106,7 +157,7 @@ const Reservation = () => {
               />
               <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
                 <FormField
-                  control={form.control}
+                  control={control}
                   name="date"
                   render={({ field }) => (
                     <FormItem className="flex w-full flex-col">
@@ -130,8 +181,11 @@ const Reservation = () => {
                           <Calendar
                             mode="single"
                             selected={field.value}
-                            onSelect={field.onChange}
-                            disabled={(date) => date > new Date()}
+                            onSelect={(date) => {
+                              field.onChange(date);
+                              setValue("date", date);
+                            }}
+                            disabled={[{ dayOfWeek: [1] }, { before: new Date() }]}
                             initialFocus
                           />
                         </PopoverContent>
@@ -142,12 +196,12 @@ const Reservation = () => {
                 />
 
                 <FormField
-                  control={form.control}
+                  control={control}
                   name="time"
                   render={({ field }) => (
                     <FormItem className="flex w-full flex-col md:w-[240px]">
                       <FormLabel>Time</FormLabel>
-                      <Select onValueChange={field.onChange}>
+                      <Select onValueChange={field.onChange} disabled={!selectedDate}>
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Pick a time" />
@@ -159,7 +213,7 @@ const Reservation = () => {
                           <SelectItem value="20">20:00</SelectItem>
                         </SelectContent>
                       </Select>
-                     
+
                       <FormMessage />
                     </FormItem>
                   )}
@@ -171,7 +225,7 @@ const Reservation = () => {
               </Button>
             </form>
           </Form>
-          <Footer/>
+          <Footer />
         </div>
       </div>
     </div>
