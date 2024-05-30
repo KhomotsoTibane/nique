@@ -32,11 +32,15 @@ const formSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
-  email: z.string({
-    message: "Email must be at least 2 characters.",
-    required_error: "A Date is required to make a reservation",
-  }),
-  guests: z.string(),
+  email: z.string()
+    .email("Invalid email address.")
+    .min(2, {
+      message: "Email must be at least 2 characters.",
+    })
+    .nonempty({ message: "Email is required." }),
+  guests: z.string()
+    .nonempty({ message: "Number of guests is required." })
+    .regex(/^\d+$/, { message: "Guests must be a number." }),
   date: z.date({
     required_error: "A Date is required to make a reservation",
   }),
@@ -44,6 +48,7 @@ const formSchema = z.object({
     required_error: "A Time is required to make a reservation",
   }),
 });
+
 
 const Reservation = () => {
   const { control, watch, setValue } = useForm();
@@ -77,8 +82,28 @@ const Reservation = () => {
 
   console.log("slected", selectedDate);
 
+  const generateSelectItems = () => {
+    const dayOfWeek = selectedDate?.getDay(); // Get the current day of the week (0 for Sunday, 1 for Monday, etc.)
+    const times = [];
+
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+      // Weekend: Saturday or Sunday
+      for (let hour = 9; hour <= 23; hour++) {
+        const time = `${hour.toString().padStart(2, '0')}:00`;
+        times.push(time);
+      }
+    } else {
+      // Weekdays: Monday to Friday
+      for (let hour = 9; hour <= 20; hour++) {
+        const time = `${hour.toString().padStart(2, '0')}:00`;
+        times.push(time);
+      }
+    }
+    return times.map(time => <SelectItem key={time} value={time}>{time}</SelectItem>);
+  }
+
   return (
-    <div className="flex max-h-screen min-h-screen w-full flex-col gap-6 overflow-y-auto bg-dark text-default">
+    <div className="flex max-h-screen min-h-screen w-full flex-col gap-6 bg-dark text-default lg:overflow-y-auto">
       <div className="flex flex-col gap-6 p-8">
         <div>
           <h2 className="">Book a table</h2>
@@ -142,9 +167,9 @@ const Reservation = () => {
                       <Input
                         className=" border-muted bg-transparent"
                         type="number"
-                        min={1}
+                        min={2}
                         max={50}
-                        placeholder=""
+                        placeholder="2"
                         {...field}
                         onChange={(e) => {
                           form.setValue("guests", e.target.value);
@@ -208,9 +233,7 @@ const Reservation = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent className="bg-default">
-                          <SelectItem value="18">18:00</SelectItem>
-                          <SelectItem value="19">19:00</SelectItem>
-                          <SelectItem value="20">20:00</SelectItem>
+                        {generateSelectItems()}
                         </SelectContent>
                       </Select>
 

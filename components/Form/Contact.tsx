@@ -22,14 +22,13 @@ const formSchema = z.object({
   }),
   email: z.string({
     message: "Email must be at least 2 characters.",
-    required_error: "A Date is required to make a reservation",
+    required_error: "Email is required",
   }),
-  date: z.date({
-    required_error: "A Date is required to make a reservation",
+  message: z.string({
+    message: "Email must be at least 2 characters.",
+    required_error: "Message is required",
   }),
-  time: z.string({
-    required_error: "A Time is required to make a reservation",
-  }),
+
 });
 
 const Contact = () => {
@@ -46,12 +45,13 @@ const Contact = () => {
   }
 
   return (
-    <div className="flex max-h-screen min-h-screen w-full flex-col gap-6 overflow-y-auto bg-dark text-default">
+    <div className="flex max-h-screen min-h-screen w-full flex-col gap-6 bg-dark text-default lg:overflow-y-auto">
       <div className="flex flex-col gap-6 p-8">
         <div>
           <p className="text-large max-w-[600px] text-muted">
-            Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Arcu non odio
-            euismod lacinia. Tortor aliquam nulla facilisi cras fermentum odio eu.
+            We would love to hear from you! Whether you have questions, feedback, or need assistance,
+            our team is here to help. Reach out to us, and we will get back to you as soon as
+            possible.
           </p>
         </div>
 
@@ -100,15 +100,16 @@ const Contact = () => {
 
               <FormField
                 control={form.control}
-                name="email"
+                name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Message</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Message" 
-                      className=" border-muted bg-transparent"
-                      {...field}
-                       />
+                      <Textarea
+                        placeholder="Message"
+                        className=" border-muted bg-transparent"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

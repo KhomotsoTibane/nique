@@ -3,7 +3,7 @@ import { NavbarLink, MenuItem, ClassEvent } from "@/types";
 export const NavbarLinks: NavbarLink[] = [
   {
     imgURL: "/assets/icons/arrow-right.svg",
-    route: "/",
+    route: "/menu",
     label: "Menu",
   },
   {
