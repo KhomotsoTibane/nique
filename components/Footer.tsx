@@ -9,8 +9,22 @@ const Footer = () => {
           <Image src="/assets/icons/nique-logo.svg" alt="logo" width={90} height={31} />
           <p>
             By{" "}
+            <a href="https://khomotso.vercel.app" className="hover:underline">
+              <span className="text-primary">Khomotso Tibane</span>
+            </a>
+            .
+          </p>
+          <p>
+            Design{" "}
             <a href="https://templates.gola.io" className="hover:underline">
               <span className="text-primary">Pawel Gola</span>
+            </a>
+            .
+          </p>
+          <p>
+            Figma File{" "}
+            <a href="https://www.figma.com/design/vhYv3pJorInXp2b4WXBbei/Nique---Restaurant-Website---Webflow-Template-(Community)?node-id=201-1936&t=yoOMpVe0VC7AmCWo-0" className="hover:underline">
+              <span className="text-primary">Here</span>
             </a>
             .
           </p>

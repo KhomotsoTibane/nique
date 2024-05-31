@@ -366,3 +366,88 @@ background: linear-gradient(90deg, rgba(46,46,45,1) 0%, rgba(115,115,114,0) 55%)
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.scroll-section-outer {
+  overflow: hidden;
+}
+
+.scroll-section-inner {
+  height: 100vh;
+  width: 400vw;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.scroll-section {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-section h3 {
+  color:  #e6e6e6;
+  letter-spacing: clamp(1rem, 2vw, 4rem);
+  font-size: clamp(1rem, 2vw, 4rem);
+  text-transform: uppercase;
+}
+
+
+.gallery1 {
+  background-image: url("../public/assets/images/hero.webp");
+  background-size: contain;
+  z-index: -1;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.gallery2 {
+  background-image: url("../public/assets/images/gallery-2.webp");
+  background-size: contain;
+  z-index: -1;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.gallery3 {
+  background-image: url("../public/assets/images/gallery-3.webp");
+  background-size: contain;
+  z-index: -1;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.gallery4 {
+  background-image: url("../public/assets/images/gallery-4.webp");
+  background-size: contain;
+  z-index: -1;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
+.slide-down {
+  animation: slide-down 0.5s ease-out;
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}

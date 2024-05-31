@@ -153,28 +153,81 @@ export const classes: ClassEvent[] = [
     id: 1,
     category: "Asian",
     title: "Delicious breakfast",
+    slug:"delicious_breakfast",
     date: "June 16, 2024",
     image: "/assets/images/gallery-1.webp",
+    details: {
+      description:
+        "Enjoy a delicious breakfast with a variety of flavors to start your day right. Learn the secrets of making a perfect morning meal.",
+      price: "500",
+      time: "8:00 PM",
+      teacher: {
+        name: "Wanda Mabips",
+        description: "Wanda Mabips is an expert chef with a passion for teaching and creating delicious meals. With over 20 years of experience in Asian cuisine, Wanda has mastered the art of balancing flavors and creating dishes that are both nutritious and delightful. Her classes are engaging, informative, and designed to help you recreate restaurant-quality meals at home.",
+        language: "English",
+        img: "/assets/images/wanda.png"
+      },
+    },
   },
   {
     id: 2,
     category: "European",
     title: "Croissant and coffee",
+    slug:"croissant_and_coffee",
     date: "July 28, 2024",
     image: "/assets/images/gallery-2.webp",
+    details: {
+      description:
+        "Enjoy a delicious breakfast with a variety of flavors to start your day right. Learn the secrets of making a perfect morning meal.",
+      price: "500",
+      time: "8:00 PM",
+      teacher: {
+        name: "Le Fortua Sana",
+        description: "Le Fortua Sana is a renowned chef with a passion for European pastries and innovative culinary techniques. He has worked in Michelin-starred kitchens across Europe, bringing a wealth of knowledge and expertise to his classes. Le Fortua's unique approach to traditional recipes and his dedication to culinary excellence make his classes a true masterclass experience.",
+        language: "English",
+        img: "/assets/images/forte.png"
+      },
+    },
   },
   {
     id: 3,
     category: "American",
     title: "Pancakes with maple syrup",
+    slug:"pancakes_with_maple_syrup",
     date: "September 8, 2024",
     image: "/assets/images/gallery-3.webp",
+    details: {
+      description:
+        "Enjoy a delicious breakfast with a variety of flavors to start your day right. Learn the secrets of making a perfect morning meal.",
+      price: "500",
+      time: "8:00 PM",
+      teacher: {
+        name: "Moeks LeZenski",
+        description: "Moeks LeZenski is a dedicated chef with a deep love for classic American comfort foods. His pancake recipes are a testament to his commitment to creating the perfect breakfast experience. With a warm teaching style and a keen attention to detail, Moeks ensures that his classes are both enjoyable and highly educational.",
+        language: "English",
+        img: "/assets/images/moeks.png"
+      },
+    },
   },
   {
     id: 4,
     category: "African",
     title: "Ful medames",
+    slug:"ful,medames",
     date: "October 20, 2024",
     image: "/assets/images/gallery-1.webp",
+    details: {
+      description:
+        "Enjoy a delicious breakfast with a variety of flavors to start your day right. Learn the secrets of making a perfect morning meal.",
+      price: "500",
+      time: "8:00 PM",
+      teacher: {
+        name: "Tinkie Lamel",
+        description: "Tinkie Lamel is an expert chef specializing in African cuisine. She has a deep understanding of traditional African dishes and culinary traditions. Tinkie's vibrant personality and passion for sharing her knowledge make her classes an unforgettable experience. Her expertise in rich, flavorful dishes will inspire you to explore and appreciate African cuisine.",
+        language: "English",
+        img: "/assets/images/tinkie.png"
+      },
+    },
   },
 ];
+

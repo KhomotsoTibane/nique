@@ -4,6 +4,7 @@ import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
 import { Card } from "./Card";
 import { classes } from "@/constants";
+import Link from "next/link";
 
 import usePreventBodyScroll from "./usePreventBodyScroll";
 
@@ -31,7 +32,8 @@ function HorizontalScroll() {
       <div className="scroll-container " style={{}}>
         <div onMouseEnter={disableScroll} onMouseLeave={enableScroll}>
           <ScrollMenu onWheel={onWheel}>
-            {items.map(({ id, image, date, category, title }) => (
+            {items.map(({ id, image, date, category, title, slug }) => (
+              <Link href={`/class/${slug}`} key={id}>
               <Card
                 title={id}
                 itemId={id} // NOTE: itemId is required for track items
@@ -41,6 +43,7 @@ function HorizontalScroll() {
                 category={category}
                 heading={title}
               />
+              </Link>
             ))}
           </ScrollMenu>
         </div>
