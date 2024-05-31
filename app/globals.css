@@ -44,6 +44,11 @@
   }
 }
 
+html{
+scroll-behavior: smooth;
+transition: all 400ms ease;
+}
+
 body {
   /* max-width: 100%; */
   width: 100svw;
@@ -58,6 +63,7 @@ body {
   line-height: 160%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+
 }
 
 h1 {
@@ -94,6 +100,11 @@ h6 {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 120%;
+}
+
+a{
+  transition: all 800ms ease;
+  scroll-behavior: smooth;
 }
 
 .heading-h1-italic {

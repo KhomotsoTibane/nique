@@ -39,7 +39,10 @@ const ClassDetails = ({ result }: ClassDetailsProps) => {
             top-notch service.
           </p>
           <div className="my-2 flex items-center gap-6">
-            <Button>Book A Spot</Button>
+            <Button type="submit" className="w-full rounded-3xl text-black" disabled={true}>
+              Book A Spot
+            </Button>
+
             <p className=" text-large text-muted">ZAR 500</p>
           </div>
         </div>
