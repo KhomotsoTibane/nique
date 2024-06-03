@@ -48,6 +48,9 @@ export default function Email({ name, email, guests, date, time }: BookingProps)
               <Row>
               <Column>{`Date: ${date}`}</Column>
               </Row>
+              <Row>
+              <Column>{`Time: ${time}`}</Column>
+              </Row>
             </Section>
           </Text>
 
@@ -102,16 +105,16 @@ export default function Email({ name, email, guests, date, time }: BookingProps)
           <Section>
             <Link
               style={footerLink}
-              href="/"
+              href="https://nique-two.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Our blog
+              Home
             </Link>
             &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
             <Link
               style={footerLink}
-              href="/"
+              href="https://nique-two.vercel.app/menu"
               target="_blank"
               rel="noopener noreferrer"
             >

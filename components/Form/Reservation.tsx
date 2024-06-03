@@ -22,7 +22,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import { cn, humanReadableDate } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { format } from "date-fns";
@@ -45,7 +45,7 @@ const formSchema = z.object({
 });
 
 const Reservation = () => {
-  const {toast} = useToast()
+  const { toast } = useToast();
   const { watch, setValue } = useForm();
   const selectedDate = watch("date");
   const form = useForm<z.infer<typeof formSchema>>({
@@ -55,33 +55,35 @@ const Reservation = () => {
       guests: "2",
     },
   });
-  const [isSending, setIsSending] = useState(false)
+  const [isSending, setIsSending] = useState(false);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-setIsSending(true)
+    setIsSending(true);
     try {
-      const res = await fetch("api/emails", {
+      await fetch("api/emails", {
         method: "POST",
         body: JSON.stringify({
           name: values.name,
           email: values.email,
           guests: values.guests,
-          date: values.date,
+          date: humanReadableDate(values.date),
           time: values.time,
         }),
       });
-      if(res.status === 200){
-        return toast({
-          title: "Booking Success",
-          description: "Please lookout for confirmation email",
-        });
-      }
+
+      return toast({
+        title: "Booking Success",
+        description: "Please lookout for confirmation email",
+      });
     } catch (error) {
-      console.log(error)
-    }finally{
-    
-      setIsSending(false)
+      console.log(error);
+      return toast({
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request. Please try again",
+      });
+    } finally {
+      setIsSending(false);
     }
   }
 
