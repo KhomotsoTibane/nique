@@ -17,8 +17,8 @@ const PageHero = ({ backgroundImg, cta, title }: Props) => {
       </header>
       <div className="dark-overlay absolute inset-0 size-full  opacity-90"></div>
       <div className="z-10 flex flex-col items-center justify-center">
-        <h1 className="heading-h1-italic text-primary intro-slide-down">{cta}</h1>
-        <h1 className="heading-medium text-default intro-slide-up">{title}</h1>
+        <h1 className="heading-h1-italic intro-slide-down text-primary">{cta}</h1>
+        <h1 className="heading-medium intro-slide-up text-default">{title}</h1>
       </div>
     </div>
   );

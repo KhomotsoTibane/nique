@@ -4,8 +4,8 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className=" py-10 text-default">
-      <div className="container mx-auto grid grid-cols-1 gap-8 md:grid-cols-3">
-        <div className="text-center md:text-left">
+      <div className="container mx-auto grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="flex flex-col items-center justify-center md:items-start">
           <Image src="/assets/icons/nique-logo.svg" alt="logo" width={90} height={31} />
           <p>
             By{" "}

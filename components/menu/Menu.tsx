@@ -19,7 +19,7 @@ const Menu = () => {
   };
   return (
     <div className="flex w-full flex-col gap-6 bg-dark lg:max-h-screen lg:overflow-y-auto">
-      <div className="sticky top-0 z-50 flex w-full justify-center gap-4 bg-black p-2">
+      <div className="sticky top-0 z-50 flex w-full justify-center gap-4 bg-dark p-2">
         {["Starters", "Breakfast", "Lunch", "Drinks"].map((link) => {
           return (
             <button
@@ -46,13 +46,13 @@ const Menu = () => {
                     Starter of the day
                   </div>
                 )}
-                <div className="max-h-[80px] max-w-[100px] overflow-hidden rounded-xl ">
+                <div className="flex size-full max-h-[80px] max-w-[100px] shrink-0 items-center justify-center overflow-hidden rounded-xl ">
                   <Image
                     src={item.image}
                     alt={item.name}
-                    width={100}
-                    height={77}
-                    className="hover:scale-110"
+                    width={150}
+                    height={150}
+                    className="hover:scale-110 "
                   />
                 </div>
                 <div className="flex grow flex-col justify-center gap-1">
@@ -89,13 +89,13 @@ const Menu = () => {
           {breakfastMenu.map((item) => {
             return (
               <div key={item.name} className="flex gap-4">
-                <div className="max-h-[80px] max-w-[100px] overflow-hidden rounded-xl ">
+                <div className="flex size-full max-h-[80px] max-w-[100px] shrink-0 items-center justify-center overflow-hidden rounded-xl ">
                   <Image
                     src={item.image}
                     alt={item.name}
-                    width={100}
-                    height={77}
-                    className="hover:scale-110"
+                    width={150}
+                    height={150}
+                    className="hover:scale-110 "
                   />
                 </div>
                 <div className="flex grow flex-col justify-center gap-1">
@@ -140,13 +140,13 @@ const Menu = () => {
                     Lunch of the day
                   </div>
                 )}
-                <div className="max-h-[80px] max-w-[100px] overflow-hidden rounded-xl ">
+                <div className="flex size-full max-h-[80px] max-w-[100px] shrink-0 items-center justify-center overflow-hidden rounded-xl ">
                   <Image
                     src={item.image}
                     alt={item.name}
-                    width={100}
-                    height={77}
-                    className="hover:scale-110"
+                    width={150}
+                    height={150}
+                    className="hover:scale-110 "
                   />
                 </div>
                 <div className="flex grow flex-col justify-center gap-1">
@@ -183,13 +183,13 @@ const Menu = () => {
           {drinksMenu.map((item) => {
             return (
               <div key={item.name} className="flex gap-4">
-                <div className="h-[80px] w-[100px] overflow-hidden rounded-xl ">
+                <div className="flex size-full max-h-[80px] max-w-[100px] shrink-0 items-center justify-center overflow-hidden rounded-xl ">
                   <Image
                     src={item.image}
                     alt={item.name}
-                    width={100}
-                    height={77}
-                    className="hover:scale-110"
+                    width={150}
+                    height={150}
+                    className="hover:scale-110 "
                   />
                 </div>
                 <div className="flex grow flex-col justify-center gap-1">
