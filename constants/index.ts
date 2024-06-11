@@ -56,6 +56,8 @@ export const startersMenu: MenuItem[] = [
       "Creamy roasted pumpkin soup with aromatic spices, coconut milk, olive oil drizzle, and toasted pumpkin seeds",
     isVegan: true,
     price: 113,
+    mealOfTheDay:true,
+    adjustedPrice:60
   },
 ];
 
@@ -74,6 +76,9 @@ export const lunchMenu: MenuItem[] = [
     description: "A flavorful curry with shrimp, mussels, and squid in a rich coconut sauce.",
     isVegan: false,
     price: 303,
+    mealOfTheDay:true,
+    adjustedPrice:250
+
   },
   {
     name: "Vegan Burger",

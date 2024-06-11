@@ -10,6 +10,8 @@ export interface MenuItem {
   description: string;
   isVegan: boolean;
   price: number;
+  mealOfTheDay?:boolean;
+  adjustedPrice?:number;
 }
 
 export interface ClassEvent {

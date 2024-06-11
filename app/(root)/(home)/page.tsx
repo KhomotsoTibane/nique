@@ -22,9 +22,9 @@ const Page = () => {
       </header>
       <div className="dark-overlay absolute inset-0 size-full  opacity-90"></div>
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
-        <h1 className="heading-h1-italic text-primary">The pure taste of</h1>
-        <h1 className="heading-xlarge text-default">Thailand</h1>
-        <div className="text-xlarge max-w-lg text-wrap text-center text-default">
+        <h1 className="heading-h1-italic intro-slide-down text-primary">The pure taste of</h1>
+        <h1 className="heading-xlarge text-default intro-slide-up">Thailand</h1>
+        <div className="text-xlarge max-w-lg text-wrap text-center text-default intro-slide-up">
           <p>
             {" "}
             From our sizzling street food to our sumptuous signature dishes, every bite is a journey
