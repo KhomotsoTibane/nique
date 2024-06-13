@@ -58,7 +58,7 @@ const Reservation = () => {
   const [isSending, setIsSending] = useState(false);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+
     setIsSending(true);
     try {
       await fetch("api/emails", {

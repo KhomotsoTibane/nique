@@ -323,44 +323,6 @@ background: linear-gradient(90deg, rgba(46,46,45,1) 0%, rgba(115,115,114,0) 55%)
   }
 }
 
-@media screen and (max-width: 479px) {
-  h5 {
-    font-size: 1.125rem;
-  }
-
-  h6 {
-    font-size: 1rem;
-  }
-
-  .heading-xlarge {
-    font-size: 4rem;
-  }
-
-  .heading-large {
-    font-size: 2.5rem;
-  }
-
-  .heading-h5 {
-    font-size: 1.125rem;
-  }
-
-  .heading-h1 {
-    font-size: 2.75rem;
-  }
-
-  .heading-h6 {
-    font-size: 1rem;
-  }
-
-  .heading-medium {
-    font-size: 2.5rem;
-  }
-
-  .heading-h1-italic {
-    font-size: 3rem;
-  }
-}
-
 .card {
   width: 33.33vw;
   height: 100vh;
@@ -371,7 +333,6 @@ background: linear-gradient(90deg, rgba(46,46,45,1) 0%, rgba(115,115,114,0) 55%)
   .card {
     width: 100vw;
   }
-
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -396,7 +357,7 @@ background: linear-gradient(90deg, rgba(46,46,45,1) 0%, rgba(115,115,114,0) 55%)
 
 .scroll-section-classes-inner {
   height: 100vh;
-  width: 100vw;
+  width: 700vw;
   display: flex;
   flex-direction: row;
   position: relative;
@@ -511,24 +472,31 @@ background: linear-gradient(90deg, rgba(46,46,45,1) 0%, rgba(115,115,114,0) 55%)
 
 @media screen and (max-width: 479px) {
 
-  .scroll-section-classes {
-  
-    width: 100vw;
+  .scroll-section-classes-inner {
+    height: 100vh;
+    width: 500vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
     
+  }
+  
+
+  .scroll-section-classes {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   h5 {
     font-size: 1.125rem;
   }
-
   h6 {
     font-size: 1rem;
-  }
-
-  .heading-xlarge {
+  }  .heading-xlarge {
     font-size: 4rem;
-  }
-
-  .menu-title {
+  }.menu-title {
     font-size: 1.25rem;
   }
 
@@ -553,5 +521,11 @@ background: linear-gradient(90deg, rgba(46,46,45,1) 0%, rgba(115,115,114,0) 55%)
 
   .menu-price {
     font-size: 1rem;
+  }
+
+
+
+  .heading-h1-italic {
+    font-size: 3rem;
   }
 }

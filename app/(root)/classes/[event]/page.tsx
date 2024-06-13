@@ -25,10 +25,6 @@ const page = async ({ params }: Props) => {
   const _id = params.event
   const result = await getClassEvent({ slug: _id });
 
-
- 
-  console.log("result", result)
-
   return (
     <div className=" flex flex-col justify-evenly md:grid md:grid-flow-dense md:grid-cols-2 lg:max-h-full">
       <div className="relative col-span-1 max-h-screen">

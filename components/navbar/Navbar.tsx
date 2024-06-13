@@ -10,7 +10,6 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const pathname = usePathname();
 
-  console.log("path", pathname);
   return (
     <div className="fixed inset-x-0 bottom-8 z-50 mx-4 flex items-center justify-center lg:absolute lg:bottom-12">
       <div className="flex items-center gap-2 rounded-[500px] bg-default px-6 py-2.5 text-black">

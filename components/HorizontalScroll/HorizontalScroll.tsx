@@ -20,7 +20,7 @@ function HorizontalScroll() {
         translateX: 0,
       },
       {
-        translateX: "-100vw",
+        translateX: "-500vw",
         ease: "none",
         duration: 1,
         scrollTrigger: {
@@ -29,7 +29,12 @@ function HorizontalScroll() {
           end: "2000 top",
           scrub: 0.6,
           pin: true,
+      
         },
+        onComplete: () => {
+          gsap.to(sectionRef.current, { translateX: 0, duration: 0 });
+          ScrollTrigger.refresh();
+        }
       }
     );
     return () => {
