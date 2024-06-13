@@ -2,15 +2,13 @@ import React from "react";
 import Image from "next/image";
 
 export function Card({
-  title,
-  itemId,
+ 
   image,
   heading,
   date,
   category,
 }: {
-  title: string;
-  itemId: string;
+
   image: string;
   heading: string;
   date: string;

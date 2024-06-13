@@ -50,8 +50,8 @@ const ClassDetails = ({ result }: ClassDetailsProps) => {
           <h1 className="heading-h2-italic">Details</h1>
           <div className="flex flex-col gap-8 text-muted">
             <div className="flex justify-between border-b border-muted py-4">
-              <p className="flex items-center justify-center">Name</p>
-              <p>{result.details.teacher.name}</p>
+              <p className="flex items-center justify-center">Date</p>
+              <p>{result.date}</p>
             </div>
             <div className="flex justify-between border-b border-muted py-4">
               <p className="flex items-center justify-center">Teacher</p>

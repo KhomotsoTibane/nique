@@ -40,7 +40,7 @@ const Page = () => {
           className={` ${!isVisible ? "slide-down" :""}`}
         />
       </div>
-      <div className="fixed inset-x-0 bottom-0 flex items-center justify-center z-50">
+      <div className="fixed inset-x-0 bottom-0 z-50 flex items-center justify-center">
         <Navbar />
       </div>
     </div>

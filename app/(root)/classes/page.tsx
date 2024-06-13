@@ -10,8 +10,10 @@ const Page = () => {
         <Image src="/assets/icons/nique-logo.svg" alt="logo" width={90} height={31} />
       </header>
       <div className="dark-overlay absolute inset-0 size-full  opacity-90"></div>
-    <HorizontalScroll/>
-      <Navbar />
+      <HorizontalScroll />
+      <div className="fixed inset-x-0 bottom-0 z-50 flex items-center justify-center">
+        <Navbar />
+      </div>
     </div>
   );
 };

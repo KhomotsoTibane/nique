@@ -12,7 +12,7 @@ const Navbar = () => {
 
   console.log("path", pathname);
   return (
-    <div className="fixed inset-x-0 bottom-8 z-[99999] mx-4 flex items-center justify-center lg:absolute lg:bottom-12">
+    <div className="fixed inset-x-0 bottom-8 z-50 mx-4 flex items-center justify-center lg:absolute lg:bottom-12">
       <div className="flex items-center gap-2 rounded-[500px] bg-default px-6 py-2.5 text-black">
         <>
         <div className="hidden lg:flex">
@@ -26,7 +26,7 @@ const Navbar = () => {
                 {NavbarLinks.map((item) => {
                   return (
                     <Link
-                      href={item.route}
+                      href={`${item.route}`}
                       key={item.route}
                       className="flex justify-between border-b p-1 hover:bg-lightGray"
                     >
@@ -140,9 +140,9 @@ const Navbar = () => {
 
         <div className="hidden gap-3 md:flex">
           {[
-            { href: "menu", label: "Menu" },
-            { href: "resturant", label: "Resturant" },
-            { href: "classes", label: "Classes" },
+            { href: "/menu", label: "Menu" },
+            { href: "/resturant", label: "Resturant" },
+            { href: "/classes", label: "Classes" },
           ].map((link) => {
             const isActive =
               (pathname.includes(link.href) && link.href.length > 1) || pathname === link.href;
