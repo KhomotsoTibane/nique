@@ -35,7 +35,7 @@ export function Card({
       <div className="dark-overlay absolute inset-0 size-full opacity-90"></div>
       <div className="absolute inset-0 z-10 flex size-full flex-col items-center justify-center">
         <h1 className="heading-h2-italic text-primary">{category}</h1>
-        <h2 className=" text-default">{heading}</h2>
+        <h2 className=" text-center text-default">{heading}</h2>
         <p className="text-muted">{date}</p>
       </div>
     </div>

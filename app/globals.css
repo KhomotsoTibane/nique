@@ -371,6 +371,7 @@ background: linear-gradient(90deg, rgba(46,46,45,1) 0%, rgba(115,115,114,0) 55%)
   .card {
     width: 100vw;
   }
+
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -509,6 +510,12 @@ background: linear-gradient(90deg, rgba(46,46,45,1) 0%, rgba(115,115,114,0) 55%)
 }
 
 @media screen and (max-width: 479px) {
+
+  .scroll-section-classes {
+  
+    width: 100vw;
+    
+  }
   h5 {
     font-size: 1.125rem;
   }
